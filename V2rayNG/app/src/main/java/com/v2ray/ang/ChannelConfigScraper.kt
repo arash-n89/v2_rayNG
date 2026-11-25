@@ -1,4 +1,4 @@
-package com.example.collector
+package com.v2ray.ang
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
