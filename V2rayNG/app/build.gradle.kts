@@ -170,7 +170,9 @@ android {
 dependencies {
     // Core Libraries
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.aar", "*.jar"))))
-
+implementation("com.squareup.okhttp3:okhttp:4.12.0")
+implementation("org.jsoup:jsoup:1.17.2")
+implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
     // AndroidX Core Libraries
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
