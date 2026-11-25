@@ -1,0 +1,28 @@
+name: Build debug APK
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Download Xray core
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p V2rayNG/app/libs
+          gh release download -R 2dust/AndroidLibXrayLite -p "libv2ray.aar" -D V2rayNG/app/libs --clobber
+      - name: Build
+        working-directory: V2rayNG
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apk
+          path: V2rayNG/app/build/outputs/apk/**/*.apk
