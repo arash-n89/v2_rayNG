@@ -10,7 +10,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 # ---- edit these ----
 CHANNELS = ["irconfig", "Digihub_GP", "DigiHubAI", "proxy_kafee"]  # public channel usernames, without @
-PAGES = 50          # pages per channel (~20 posts each)
+PAGES = 5          # pages per channel (~20 posts each)
 MAX_OUT = 500      # max configs kept in the subscription
 TIMEOUT = 4        # seconds for the TCP check
 # --------------------
